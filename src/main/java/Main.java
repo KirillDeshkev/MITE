@@ -1,12 +1,12 @@
+import java.io.IOException;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println("run");
-        getTheSite();
-    }
-
-    public static void getTheSite() throws InterruptedException {
-        open("https://kurs.onliner.by/");
+    public static void main(String[] args) throws IOException {
+        var steps = new Steps();
+        steps.openTheSite();
+        var writer = new Writer();
+        writer.fillTheFIle(steps.getUSDSellRate(), steps.getUSDBuyRate(), steps.getEURSellRate(), steps.getEURBuyRate());
     }
 }
